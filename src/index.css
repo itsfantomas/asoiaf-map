@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-vellum: #F4ECE1;
+    --bg-sea: #DCD3C1;
+    --surface-vellum: #EFE4D4;
+    --border-ink: #D6C6B0;
+    --ink-primary: #2A211B;
+    --ink-secondary: #68584B;
+    --accent-crimson: #8C2318;
+    --accent-brass: #B08D57;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-vellum);
+    color: var(--ink-primary);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  h1, h2, h3, h4, .font-chronicle {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+@keyframes migrationFlow {
+  from {
+    stroke-dashoffset: 56;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.75;
+  }
+  70% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+}
+
+.migration-route-active {
+  animation: migrationFlow 2.6s linear infinite;
+}
+
+.migration-route-subtle {
+  animation: migrationFlow 5.2s linear infinite;
+}
+
+.marker-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulseRing 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+/* Custom subtle vellum scrollbar for drawer */
+.vellum-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.vellum-scroll::-webkit-scrollbar-track {
+  background: rgba(214, 198, 176, 0.28);
+}
+
+.vellum-scroll::-webkit-scrollbar-thumb {
+  background: rgba(104, 88, 75, 0.38);
+  border-radius: 9999px;
+}
+
+.vellum-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(140, 35, 24, 0.65);
+}
