@@ -59,8 +59,10 @@ export const LoreDrawer: React.FC<LoreDrawerProps> = ({
       ? MIGRATION_ROUTES.find((m) => m.id === selectedEntity.id)
       : null;
 
-  const headerImage =
-    region?.image || landmark?.image || migration?.image || '/images/kings-landing.jpg';
+  // рендер картинок
+const rawImage =
+  region?.image || landmark?.image || migration?.image || '/images/kings-landing.jpg';
+const headerImage = `${import.meta.env.BASE_URL}${rawImage.replace(/^\//, '')}`;
   const badgeText = region
     ? region.continentLabel
     : landmark
